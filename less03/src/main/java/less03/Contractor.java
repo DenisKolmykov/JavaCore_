@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.Date;
 
 public abstract class Contractor implements Comparator<Contractor> {
-    public int getAge(){
+    public int getAge() {
         Date now = new Date();
         DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         Date birthDateD;
@@ -19,10 +19,12 @@ public abstract class Contractor implements Comparator<Contractor> {
         int age = now.getYear() - birthDateD.getYear();
         return age;
     }
+
     @Override
     public String toString() {
         return String.format("%s, %s, возраст(лет): %d, доход в мес (руб): %.2f (%s)", name, speciality, getAge(), getSalary(), this.getClass().getSimpleName());
     }
+
     public abstract double getSalary();
 
     //compare SALARY
@@ -47,7 +49,6 @@ public abstract class Contractor implements Comparator<Contractor> {
 //        return 0;
 //    }
 
-
     //region Поля
     protected String name;
     protected String speciality;
@@ -55,7 +56,7 @@ public abstract class Contractor implements Comparator<Contractor> {
     //endregion
 
     //region Конструкторы
-    protected Contractor(String name, String speciality, String birthDate){
+    protected Contractor(String name, String speciality, String birthDate) {
         this.name = name;
         this.speciality = speciality;
         this.birthDate = birthDate;
@@ -63,32 +64,34 @@ public abstract class Contractor implements Comparator<Contractor> {
     //endregion
 
     //region Свойства
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String name){
-        if (name == null || name.length() < 3){
+
+    public void setName(String name) {
+        if (name == null || name.length() < 3) {
             throw new RuntimeException("Некорректное имя человека.");
         }
         this.name = name;
     }
 
-    public String getSpeciality(){
+    public String getSpeciality() {
         return speciality;
     }
-    public void setSpeciality(String speciality){
-        if (speciality == null || speciality.length() < 3){
+
+    public void setSpeciality(String speciality) {
+        if (speciality == null || speciality.length() < 3) {
             throw new RuntimeException("Некорректное наименование специальности.");
         }
         this.speciality = speciality;
     }
 
-    public String getBirthDate(){
+    public String getBirthDate() {
         return birthDate;
     }
-    public void setBirthDate(String birthDate){
+
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 //endregion
-
 }

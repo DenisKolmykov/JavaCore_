@@ -26,4 +26,5 @@ public class Freelancer extends Contractor{
     public double getSalary() {
         return 20.8 * 8 * hRate;
     }
+
 }

@@ -34,7 +34,6 @@ public class ContactorsCollection {
         }
     }
 
-
     //region  Вспомогательные методы
     /**
      * генерируем случайное значение поля для классов Worker и Freelancer
