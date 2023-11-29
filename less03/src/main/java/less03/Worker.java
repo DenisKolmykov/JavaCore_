@@ -25,5 +25,4 @@ public class Worker extends Contractor{
     public double getSalary() {
         return monthSalary;
     }
-
 }

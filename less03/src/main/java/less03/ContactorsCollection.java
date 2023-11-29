@@ -1,6 +1,7 @@
 package less03;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class ContactorsCollection {
@@ -33,6 +34,23 @@ public class ContactorsCollection {
             count++;
         }
     }
+
+    public void sortContractorsBySalary(){
+        Contractor[] array = contractorsList.toArray(new Contractor[0]);
+        for (int i = 0; i < array.length - 1; i++){
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++){
+                if (array[minIndex].compareTo(array[j] ) == 1){
+                    minIndex = j;
+                }
+            }
+            Contractor temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+        contractorsList = new ArrayList<Contractor>(Arrays.asList(array));
+    }
+
 
     //region  Вспомогательные методы
     /**

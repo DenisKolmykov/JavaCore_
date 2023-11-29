@@ -20,5 +20,10 @@ public class Program {
 
         contractorList.printContactorsCollection();
 
+        System.out.println("\nСортировка по уровню дохода:");
+        contractorList.sortContractorsBySalary();
+        contractorList.printContactorsCollection();
+
+
     }
 }

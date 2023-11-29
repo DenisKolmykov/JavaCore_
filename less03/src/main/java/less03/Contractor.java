@@ -3,10 +3,9 @@ package less03;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Comparator;
 import java.util.Date;
 
-public abstract class Contractor implements Comparator<Contractor> {
+public abstract class Contractor implements Comparable<Contractor> {
     public int getAge() {
         Date now = new Date();
         DateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
@@ -25,26 +24,28 @@ public abstract class Contractor implements Comparator<Contractor> {
         return String.format("%s, %s, возраст(лет): %d, доход в мес (руб): %.2f (%s)", name, speciality, getAge(), getSalary(), this.getClass().getSimpleName());
     }
 
+
     public abstract double getSalary();
+
 
     //compare SALARY
     @Override
-    public int compare(Contractor c1, Contractor c2) {
-        if (c1.getSalary() > c2.getSalary()) {
+    public int compareTo(Contractor contractor2) {
+        if (this.getSalary() > contractor2.getSalary()){
             return 1;
-        } else if (c1.getSalary() < c2.getSalary()) {
-            return 1;
+        } else if (this.getSalary() < contractor2.getSalary()){
+            return -1;
         }
         return 0;
     }
 
 //    //compare AGE
 //    @Override
-//    public int compare(Contractor c1, Contractor c2){
-//        if (c1.getAge() > c2.getAge()){
+//    public int compareTo(Contractor contractor2) {
+//        if (this.getAge() > contractor2.getAge()){
 //            return 1;
-//        } else if (c1.getAge() < c2.getAge()){
-//            return 1;
+//        } else if (this.getAge() < contractor2.getAge()){
+//            return -1;
 //        }
 //        return 0;
 //    }
